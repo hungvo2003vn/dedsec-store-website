@@ -1,3 +1,5 @@
+import { FE_SERVER_HOST } from '/env.js';
+
 function get_token(){
 
     if(!(localStorage.getItem('user'))){
@@ -10,7 +12,7 @@ function get_token(){
 
 async function get_current_cart(myToken){
 
-    const res = await fetch(`http://localhost:8000/cart`,{
+    const res = await fetch(`http://${FE_SERVER_HOST}/cart`,{
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${myToken}`
@@ -100,7 +102,7 @@ function update_order(products_cart){
     var dd = String(today.getDate()).padStart(2, '0');
     var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
     var yyyy = today.getFullYear();
-    delivery_date = mm + '/' + dd + '/' + yyyy;
+    let delivery_date = mm + '/' + dd + '/' + yyyy;
 
     // Others
     let subtotal_value = (0).toFixed(2);
@@ -141,7 +143,7 @@ async function autofill_infor(){
 
 async function get_infor(myToken, myID){
 
-    let res = await fetch(`http://localhost:8000/user/${myID}`, {
+    let res = await fetch(`http://${FE_SERVER_HOST}/user/${myID}`, {
         method: 'GET',
         headers:{
             "Authorization": `Bearer ${myToken}`,
@@ -278,7 +280,7 @@ expDateInput.addEventListener('input', (event) => {
 
 async function Order_Cart(myToken, myAddress){
 
-    const res = await fetch(`http://localhost:8000/cart/checkout`,{
+    const res = await fetch(`http://${FE_SERVER_HOST}/cart/checkout`,{
         method: 'POST',
         headers: {
             'Authorization': `Bearer ${myToken}`

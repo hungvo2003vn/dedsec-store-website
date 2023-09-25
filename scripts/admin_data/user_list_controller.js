@@ -1,5 +1,7 @@
+import { FE_SERVER_HOST } from '/env.js';
+
 //GET USER LIST
-fetch("http://localhost:8000/user",{method:'GET',
+fetch(`http://${FE_SERVER_HOST}/user`,{method:'GET',
 headers:{
     "Authorization": `Bearer ${JSON.parse(localStorage.getItem('user')).token}`,
     "Content-Type":"application/json"
@@ -39,7 +41,7 @@ for (var i in items ){
     //Get phone and address of each user
     let phone="";
     let address="";
-    fetch(`http://localhost:8000/user/${items[i].id}`,{method:'GET',
+    fetch(`http://${FE_SERVER_HOST}/user/${items[i].id}`,{method:'GET',
     headers:{
         "Authorization": `Bearer ${JSON.parse(localStorage.getItem('user')).token}`,
         "Content-Type":"application/json"

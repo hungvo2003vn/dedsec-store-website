@@ -297,15 +297,15 @@
 
     <!-- Bootstrap 5 -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-    <!-- Script for fixed navbar -->
+    <!-- script for fixed navbar -->
     <script src="../scripts/fixed_navbar.js"></script>
     <!-- Handle menu bar -->
     <script src="../scripts/handle_menu.js"></script>
     <!-- Adding script for slider change -->
-    <script src="../scripts/for_slider.js"></script>
+    <script type="module" src="../scripts/for_slider.js"></script>
     <!-- Handle sign in-up -->
-    <script src="../scripts/user_data/handle_sign.js"></script>
+    <script type="module" src="../scripts/user_data/handle_sign.js"></script>
     <!-- Product details -->
-    <script src="../scripts/product-details.js"></script>
+    <script type="module" src="../scripts/product-details.js"></script>
 </body>
 </html>

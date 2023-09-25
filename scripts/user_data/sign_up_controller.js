@@ -1,3 +1,4 @@
+import { FE_SERVER_HOST } from '/env.js';
 
 // Handle form
 function ValidateEmail(email) 
@@ -102,7 +103,7 @@ var sign_in=document.querySelector("#sign-up-button").addEventListener('click', 
         }
     `;
 
-    fetch("http://localhost:8000/auth/register", { method: "POST", 
+    fetch(`http://${FE_SERVER_HOST}/auth/register`, { method: "POST", 
     headers:{
         "Content-Type": "application/json",
     },

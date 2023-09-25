@@ -1,0 +1,1 @@
+export const FE_SERVER_HOST = 'localhost:8000';

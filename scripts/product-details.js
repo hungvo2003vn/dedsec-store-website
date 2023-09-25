@@ -1,10 +1,12 @@
+import { FE_SERVER_HOST } from '/env.js';
+
 /*-----------------------------ADMIN PRODUCT DETAIL MANAGEMENT-----------------------------*/
 
 if(localStorage.getItem('user')){
     const myToken = JSON.parse(localStorage.getItem('user')).token;
     const myID = JSON.parse(localStorage.getItem('user')).data.id;
 
-    fetch(`http://localhost:8000/user/${myID}`,{method:'GET',
+    fetch(`http://${FE_SERVER_HOST}/user/${myID}`,{method:'GET',
     headers:{
         "Authorization": `Bearer ${myToken}`,
         "Content-Type":"application/json"
@@ -15,7 +17,7 @@ if(localStorage.getItem('user')){
         console.log("Response from backend:", data);
         if(data.data.role === "ADMIN" ){
             const id = localStorage.getItem('get_detail');
-            fetch(`http://localhost:8000/product/${id}`,{method: 'GET'})
+            fetch(`http://${FE_SERVER_HOST}/product/${id}`,{method: 'GET'})
             .then ((response)=>response.json())
             .then((data)=>{
                 console.log("Response from backend:",data);
@@ -116,7 +118,7 @@ function editProduct(){
     `
     // alert(changes);
 
-    fetch(`http://localhost:8000/product/${id}`,{
+    fetch(`http://${FE_SERVER_HOST}/product/${id}`,{
 
         method:"PATCH",
         headers:{
@@ -147,7 +149,7 @@ function deleteProduct(){
     if (confirmation !== "YES"){
         return;
     }
-    fetch(`http://localhost:8000/product/${id}`,{method:'DELETE',
+    fetch(`http://${FE_SERVER_HOST}/product/${id}`,{method:'DELETE',
     headers:{
         "Authorization": `Bearer ${myToken}`,
         "Content-Type":"application/json"
@@ -174,7 +176,7 @@ function addToCategory(){
     const id = localStorage.getItem('get_detail');
     var category_id=prompt("Category id to be added to: ",);
 
-    fetch(`http://localhost:8000/product/${id}/category`,{method:'POST',
+    fetch(`http://${FE_SERVER_HOST}/product/${id}/category`,{method:'POST',
         headers:{
             "Authorization": `Bearer ${myToken}`,
             "Content-Type":"application/json"
@@ -206,7 +208,7 @@ function deleteFromCategory(){
     if (confirmation !== "YES"){
         return;
     }
-    fetch(`http://localhost:8000/product/${id}/category`,{method:'DELETE',
+    fetch(`http://${FE_SERVER_HOST}/product/${id}/category`,{method:'DELETE',
     headers:{
         "Authorization": `Bearer ${myToken}`,
         "Content-Type":"application/json"
@@ -247,7 +249,7 @@ function get_token(){
 
 async function add_to_cart(myToken, id, quantity = 1){
 
-    const res = await fetch(`http://localhost:8000/cart/product/${id}`,{
+    const res = await fetch(`http://${FE_SERVER_HOST}/cart/product/${id}`,{
         method: 'POST',
         headers: {
             'Authorization': `Bearer ${myToken}`
@@ -264,7 +266,7 @@ async function add_to_cart(myToken, id, quantity = 1){
 
 // Fetch list of products
 async function Get_Product_Single(id){
-    const res = await fetch(`http://localhost:8000/product/${id}`,{
+    const res = await fetch(`http://${FE_SERVER_HOST}/product/${id}`,{
         method: 'GET'
     });
 

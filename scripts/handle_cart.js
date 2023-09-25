@@ -1,7 +1,9 @@
+import { FE_SERVER_HOST } from '/env.js';
+
 // Fetch list of cart products
 async function Get_Product_List(){
 
-    const res = await fetch('http://localhost:8000/product');
+    const res = await fetch(`http://${FE_SERVER_HOST}/product`);
     let data = await res.json();
     data = data['data'];
 
@@ -10,7 +12,7 @@ async function Get_Product_List(){
 
 async function Get_Single_Product(id){
 
-    const res = await fetch(`http://localhost:8000/product/${id}`,{
+    const res = await fetch(`http://${FE_SERVER_HOST}/product/${id}`,{
         method: 'GET',
     });
 
@@ -30,7 +32,7 @@ function get_token(){
 
 async function get_current_cart(myToken){
 
-    const res = await fetch(`http://localhost:8000/cart`,{
+    const res = await fetch(`http://${FE_SERVER_HOST}/cart`,{
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${myToken}`
@@ -44,7 +46,7 @@ async function get_current_cart(myToken){
 
 async function update_current_cart(myToken, id, quantity){
 
-    const res = await fetch(`http://localhost:8000/cart/product/${id}`,{
+    const res = await fetch(`http://${FE_SERVER_HOST}/cart/product/${id}`,{
         method: 'PATCH',
         headers: {
             'Authorization': `Bearer ${myToken}`
@@ -62,7 +64,7 @@ async function update_current_cart(myToken, id, quantity){
 
 async function add_to_cart(myToken, id, quantity = 1){
 
-    const res = await fetch(`http://localhost:8000/cart/product/${id}`,{
+    const res = await fetch(`http://${FE_SERVER_HOST}/cart/product/${id}`,{
         method: 'POST',
         headers: {
             'Authorization': `Bearer ${myToken}`
@@ -79,7 +81,7 @@ async function add_to_cart(myToken, id, quantity = 1){
 
 async function delete_from_cart(myToken, id){
 
-    const res = await fetch(`http://localhost:8000/cart/product/${id}`,{
+    const res = await fetch(`http://${FE_SERVER_HOST}/cart/product/${id}`,{
         method: 'DELETE',
         headers: {
             'Authorization': `Bearer ${myToken}`
@@ -228,7 +230,7 @@ async function update_cart(){
     var dd = String(today.getDate()).padStart(2, '0');
     var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
     var yyyy = today.getFullYear();
-    delivery_date = mm + '/' + dd + '/' + yyyy;
+    let delivery_date = mm + '/' + dd + '/' + yyyy;
 
     // Others
     let subtotal_value = 0.00;

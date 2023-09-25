@@ -1,3 +1,5 @@
+import { FE_SERVER_HOST } from '/env.js';
+
 //User hit sign-in button
 var sign_in=document.querySelector("#sign-in-button").addEventListener('click', (event)=>{
     let email = document.querySelector("#sign-in-email").value;
@@ -9,7 +11,7 @@ var sign_in=document.querySelector("#sign-in-button").addEventListener('click', 
         }
     `;
 
-    fetch("http://localhost:8000/auth/login", { method: "POST", 
+    fetch(`http://${FE_SERVER_HOST}/auth/login`, { method: "POST", 
     headers:{
         "Content-Type": "application/json",
     },

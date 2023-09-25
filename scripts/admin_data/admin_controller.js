@@ -1,3 +1,5 @@
+import { FE_SERVER_HOST } from '/env.js';
+
 //navigate to login site if user's not logged in
 if(!(localStorage.getItem('user'))){
     alert("Please login to use this features");
@@ -7,7 +9,7 @@ if(!(localStorage.getItem('user'))){
 // MAKE SURE USER IS ADMIN
     const myToken = JSON.parse(localStorage.getItem('user')).token;
     const myID = JSON.parse(localStorage.getItem('user')).data.id;
-    fetch(`http://localhost:8000/user/${myID}`,{method:'GET',
+    fetch(`http://${FE_SERVER_HOST}/user/${myID}`,{method:'GET',
     headers:{
         "Authorization": `Bearer ${myToken}`,
         "Content-Type":"application/json"

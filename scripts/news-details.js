@@ -1,3 +1,5 @@
+import { FE_SERVER_HOST } from '/env.js';
+
 function formatText(inputText) {
     const paragraphs = inputText.split('\r\n\r\n');
     const formattedText = paragraphs.map(paragraph => `<p>${paragraph.replace(/\r\n/g, ' ')}</p>`).join('\n');
@@ -6,7 +8,7 @@ function formatText(inputText) {
 
 async function Get_Blog_List(){
 
-    const res = await fetch(`http://localhost:8000/blog`);
+    const res = await fetch(`http://${FE_SERVER_HOST}/blog`);
     let data = await res.json();
     
     return {status: res.ok, message: data.message, data: data.data};
@@ -14,7 +16,7 @@ async function Get_Blog_List(){
 
 // async function Get_Blog(id){
 
-//     const res = await fetch(`http://localhost:8000/blog`);
+//     const res = await fetch(`http://${FE_SERVER_HOST}/blog`);
 //     let data = await res.json();
     
 //     return {status: res.ok, message: data.message, data: data.data};

@@ -1,3 +1,5 @@
+import { FE_SERVER_HOST } from '/env.js';
+
 //Old password
 var old_password = document.getElementById('old-password');
 
@@ -14,7 +16,7 @@ var changePassword = document.querySelector('#change-password-button').addEventL
     }
     
     const myToken = JSON.parse(localStorage.getItem('user')).token;
-    fetch("http://localhost:8000/auth/password",{method:'PATCH',
+    fetch(`http://${FE_SERVER_HOST}/auth/password`,{method:'PATCH',
     headers:{
         "Authorization": `Bearer ${myToken}`,
         "Content-Type":"application/json"

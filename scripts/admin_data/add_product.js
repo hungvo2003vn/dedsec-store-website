@@ -1,3 +1,5 @@
+import { FE_SERVER_HOST } from '/env.js';
+
 //Product name
 var _productName = document.getElementById("add-product-name");
 
@@ -39,7 +41,7 @@ var save=document.querySelector('#save-button').addEventListener('click',(event)
     `
 
     const myToken = JSON.parse(localStorage.getItem('user')).token;
-    fetch("http://localhost:8000/product",{method:'POST',
+    fetch(`http://${FE_SERVER_HOST}/product`,{method:'POST',
         headers:{
             "Authorization": `Bearer ${myToken}`,
             "Content-Type":"application/json",

@@ -1,3 +1,5 @@
+import { FE_SERVER_HOST } from '/env.js';
+
 // Name
 var _name = document.getElementById("customer-infor-name");
 
@@ -19,7 +21,7 @@ if(!(localStorage.getItem('user'))){
 //Fetch user detail phone & address
 const myToken = JSON.parse(localStorage.getItem('user')).token;
 const myID = JSON.parse(localStorage.getItem('user')).data.id;
-fetch(`http://localhost:8000/user/${myID}`,{method:'GET',
+fetch(`http://${FE_SERVER_HOST}/user/${myID}`,{method:'GET',
     headers:{
         "Authorization": `Bearer ${myToken}`,
         "Content-Type":"application/json"
@@ -51,7 +53,7 @@ var save=document.querySelector('#save-button').addEventListener('click', async 
         }
     `
     const myToken = JSON.parse(localStorage.getItem('user')).token;
-    let submit_infor = await fetch("http://localhost:8000/auth/profile",{method:'PATCH',
+    let submit_infor = await fetch(`http://${FE_SERVER_HOST}/auth/profile`,{method:'PATCH',
         headers:{
             "Authorization": `Bearer ${myToken}`,
             "Content-Type":"application/json"

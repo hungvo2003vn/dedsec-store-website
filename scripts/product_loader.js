@@ -1,3 +1,5 @@
+import { FE_SERVER_HOST } from '/env.js';
+
 const category_id_list = {
     'all': '',
     "laptops": '?category_id=1',
@@ -8,7 +10,7 @@ const category_id_list = {
 
 // Fetch list of products
 async function Get_Product_List(category_id = ''){
-    const res = await fetch(`http://localhost:8000/product${category_id}`,{
+    const res = await fetch(`http://${FE_SERVER_HOST}/product${category_id}`,{
         method: 'GET'
     });
     let data = await res.json();
@@ -50,7 +52,7 @@ function get_token(){
 
 async function access_current_cart(myToken){
 
-    const res = await fetch(`http://localhost:8000/cart`,{
+    const res = await fetch(`http://${FE_SERVER_HOST}/cart`,{
         method: 'GET',
         headers: {
             'Authorization': `Bearer ${myToken}`
@@ -64,7 +66,7 @@ async function access_current_cart(myToken){
 
 async function update_current_cart(myToken, id, quantity){
 
-    const res = await fetch(`http://localhost:8000/cart/product/${id}`,{
+    const res = await fetch(`http://${FE_SERVER_HOST}/cart/product/${id}`,{
         method: 'PATCH',
         headers: {
             'Authorization': `Bearer ${myToken}`
@@ -82,7 +84,7 @@ async function update_current_cart(myToken, id, quantity){
 
 async function add_to_cart(myToken, id, quantity = 1){
 
-    const res = await fetch(`http://localhost:8000/cart/product/${id}`,{
+    const res = await fetch(`http://${FE_SERVER_HOST}/cart/product/${id}`,{
         method: 'POST',
         headers: {
             'Authorization': `Bearer ${myToken}`
@@ -99,7 +101,7 @@ async function add_to_cart(myToken, id, quantity = 1){
 
 async function delete_from_cart(myToken, id){
 
-    const res = await fetch(`http://localhost:8000/cart/product/${id}`,{
+    const res = await fetch(`http://${FE_SERVER_HOST}/cart/product/${id}`,{
         method: 'DELETE',
         headers: {
             'Authorization': `Bearer ${myToken}`
@@ -123,7 +125,7 @@ function generateItem(id, name, image_url, price, short_description, quantity){
     // image_url = '/images/product_Laptop13.png' //Static img for testing purpose
     // Init list features
     var list_features = ''
-    for (i in short_description){
+    for (let i in short_description){
         list_features += `<li class="fb">${short_description[i]}</li>`
     }
 

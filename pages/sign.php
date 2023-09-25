@@ -117,18 +117,18 @@
     <!-- Bootstrap 5 -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    <!-- Script for fixed navbar -->
+    <!-- script for fixed navbar -->
     <script src="../scripts/fixed_navbar.js"></script>
     <!-- Handle menu bar -->
     <script src="../scripts/handle_menu.js"></script>
     <!-- Handle sign in -->
-    <script src="../scripts/user_data/sign_in_controller.js"></script>
+    <script type="module" src="../scripts/user_data/sign_in_controller.js"></script>
     <!-- Handle sign up -->
-    <script src="../scripts/user_data/sign_up_controller.js"></script>
+    <script type="module" src="../scripts/user_data/sign_up_controller.js"></script>
     <!-- Handle forgot password button -->
-    <script src="../scripts/user_data/forgot_password_controller.js"></script>
+    <script type="module" src="../scripts/user_data/forgot_password_controller.js"></script>
     <!-- Handle sign -->
-    <script src="../scripts/user_data/handle_sign.js"></script>
+    <script type="module" src="../scripts/user_data/handle_sign.js"></script>
 
     
 </body>

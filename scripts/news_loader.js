@@ -1,6 +1,8 @@
+import { FE_SERVER_HOST } from '/env.js';
+
 async function Get_Blog_List(){
 
-    const res = await fetch(`http://localhost:8000/blog`);
+    const res = await fetch(`http://${FE_SERVER_HOST}/blog`);
     let data = await res.json();
     
     return {status: res.ok, message: data.message, data: data.data};
