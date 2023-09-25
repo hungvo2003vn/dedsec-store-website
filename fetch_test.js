@@ -1,5 +1,4 @@
-require('dotenv').config();
-const FE_SERVER_HOST = process.env.FE_SERVER_HOST;
+const FE_SERVER_HOST = 'localhost:8000'
 
 
 async function test(){
